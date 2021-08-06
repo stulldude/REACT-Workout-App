@@ -1,0 +1,4 @@
+                                    Order Model
+                                         ⇵
+UI → API Module → Server Route → Controller Action
+ ⬑ ⟵ ⟵ ⟵ ⟵ ⟵ ⟵ ⟵ ⟵ ⟵ ⟵ JSON Data ↲
