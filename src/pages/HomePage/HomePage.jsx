@@ -3,7 +3,12 @@ import './HomePage.css';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { useState } from 'react';
+
 export default function HomePage() {
+    const [currRoutine, setCurrRoutine] = useState(null);
+    const [currWorkout, setCurrWorkout] = useState(null);
+
     return (
         <>  
             <Card className="UserProgress">
@@ -13,7 +18,7 @@ export default function HomePage() {
                 <Typography>NEXT WORKOUT: ? TODAY : 4/20</Typography>
             </Card>
             <br/>
-            <Link to="/">
+            <Link to="/workout">
                 <Card className="Card">     
                     <CardContent>
                         <Typography>Next Workout</Typography>

@@ -7,6 +7,7 @@ import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import HomePage from '../HomePage/HomePage'
 import NavBar from '../../components/NavBar/NavBar';
+import WorkoutPage from '../WorkoutPage/WorkoutPage'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -25,6 +26,9 @@ export default function App() {
             </Route>
             <Route path='/home'>
               <HomePage />
+            </Route>
+            <Route path="/workout">
+              <WorkoutPage />
             </Route>
             <Redirect to="/home" />
           </Switch>
