@@ -15,7 +15,7 @@ export default function NavBar(props) {
       &nbsp;&nbsp;<Link onClick={handleLogOut} to="">Log Out</Link>
       <hr />
       <nav>
-        <Link to="/orders">Order History</Link>
+        <Link to="/home">Home Page</Link>
         &nbsp; | &nbsp;
         <Link to="/orders/new">New Order</Link>
         &nbsp;&nbsp;<span>Welcome, {props.user.name}</span>
