@@ -5,16 +5,20 @@ import Button from '@material-ui/core/Button'
 export default function WorkoutDetail({ workout }) {
     // need 3 pieces of info
     // name, sets, and reps
-    async function handleCountDown(num) {
-
-    }
+    async function handleCountDown(e, reps) {
+        console.log(e);
+        console.log(e.target.innerHTML);
+        if (e.target.innerHTML > 0) e.target.innerHTML = e.target.innerHTML - 1;
+        else (e.target.innerHTML = reps);
+        console.log(e.target.value);
+    };
 
     function handleSets(exercise) {
         const buttons = [];
         const btnHold = [];
         for (let i = 0; i < exercise.sets; i++) {
             btnHold.push(
-                <Button>{exercise.reps}</Button>
+                <Button onClick={e => handleCountDown(e, exercise.reps)} value={exercise.reps}>{exercise.reps}</Button>
             )
         }
         buttons.push(
