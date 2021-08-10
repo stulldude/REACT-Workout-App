@@ -34,10 +34,10 @@ export default function HomePage() {
                 </Card>
             </Link>
             <br/>
-            <Link to="/">
+            <Link to="/routine">
                 <Card className="Card">     
                     <CardContent>
-                        <Typography>Browse Workouts</Typography>
+                        <Typography>Browse Routines</Typography>
                     </CardContent>
                 </Card>
             </Link>

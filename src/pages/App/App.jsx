@@ -8,6 +8,7 @@ import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import HomePage from '../HomePage/HomePage'
 import NavBar from '../../components/NavBar/NavBar';
 import WorkoutPage from '../WorkoutPage/WorkoutPage'
+import RoutinePage from '../RoutinePage/RoutinePage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -29,6 +30,9 @@ export default function App() {
             </Route>
             <Route path="/workout">
               <WorkoutPage />
+            </Route>
+            <Route path="/routine">
+              <RoutinePage />
             </Route>
             <Redirect to="/home" />
           </Switch>
