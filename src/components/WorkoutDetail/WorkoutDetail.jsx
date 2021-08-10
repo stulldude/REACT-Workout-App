@@ -1,3 +1,5 @@
+import CardContent from '@material-ui/core/CardContent';
+import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button'
 
 export default function WorkoutDetail({ workout }) {
@@ -9,14 +11,32 @@ export default function WorkoutDetail({ workout }) {
 
     function handleSets(exercise) {
         const buttons = [];
+        const btnHold = [];
         for (let i = 0; i < exercise.sets; i++) {
-            buttons.push(
+            btnHold.push(
                 <Button>{exercise.reps}</Button>
             )
         }
+        buttons.push(
+            <>
+            <Card>
+                <CardContent>
+                    <div>
+                        <p>{exercise.name}</p>
+                        <p>{exercise.weight}</p>
+                    </div>
+                    <div>
+                        {btnHold}
+                    </div>
+                    <br />
+                </CardContent>
+            </Card>
+            </>
+        )
         return buttons;
     }
     const buttonsArray = workout.exercises.map(exercise => handleSets(exercise));
+
     console.log('buttons:')
 
     return (
