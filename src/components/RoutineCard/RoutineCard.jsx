@@ -3,9 +3,9 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import { Link } from "react-router-dom";
 
-export default function RoutineCard({routine, setCurrRoutine}) {
+export default function RoutineCard({routine, setCurrRoutine, handleShow}) {
     return (
-        <Link onClick={setCurrRoutine(routine)} to='/home'>
+        <Link onClick={setCurrRoutine(routine), handleShow} to='/routine'>
             <Card >
                 <CardContent>
                     <div>

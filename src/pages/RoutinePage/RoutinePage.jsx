@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import * as routinesAPI from '../../utilities/routines-api'
 import RoutineIndex from "../../components/RoutineIndex/RoutineIndex";
-import RoutineDetail from "../../components/RoutineIndex/RoutineDetail";
+import RoutineDetail from "../../components/RoutineDetail/RoutineDetail";
+import Button from '@material-ui/core/Button'
 
 
 export default function RoutinePage() {
@@ -19,10 +20,18 @@ export default function RoutinePage() {
         getRoutines();
     }, []);
 
+    async function handleShowRoutines() {
+        setShowRoutines(!showRoutines);
+    }    
+
     return (
         <>
         {currRoutine ? 
-            <RoutineDetail routine={currRoutine} />
+            <>
+                <Button onClick={handleShowRoutines} >{ showRoutines ? 'Hid' : 'Change Routine' }</Button>
+                <RoutineDetail routine={currRoutine} />
+                { showRoutines ? <RoutineIndex routineList= {routineList} setCurrRoutine={setCurrRoutine} handleShow={handleShowRoutines}/> : '' }
+            </>
             :
             <RoutineIndex routineList={routineList} setCurrRoutine={setCurrRoutine} />
 

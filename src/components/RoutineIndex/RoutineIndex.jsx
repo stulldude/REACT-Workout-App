@@ -1,9 +1,9 @@
 import RoutineCard from '../RoutineCard/RoutineCard';
 
-export default function RoutineIndex({ routineList, setCurrRoutine }) {
+export default function RoutineIndex({ routineList, setCurrRoutine, handleShow }) {
     console.log(routineList)
     const routines = routineList.map(routine => 
-        <RoutineCard routine={routine} setCurrRoutine={setCurrRoutine}/>
+        <RoutineCard routine={routine} setCurrRoutine={setCurrRoutine} handleShow={handleShow}/>
     );
 
     return (
