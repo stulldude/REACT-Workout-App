@@ -18,7 +18,7 @@ export default function HomePage() {
                 <Typography>NEXT WORKOUT: ? TODAY : 4/20</Typography>
             </Card>
             <br/>
-            <Link to="/workout">
+            <Link to="/routine/workout">
                 <Card className="Card">     
                     <CardContent>
                         <Typography>Next Workout</Typography>

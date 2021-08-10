@@ -13,7 +13,8 @@ export default function RoutineDetail({ routine }) {
                     <Typography>{ routine.name }</Typography>
                     <Typography>{ routine.split }</Typography>
                     <Typography>{ routine.type }</Typography>
-                    <Link>
+                    {console.log(routine.workouts)}
+                    <Link to="/workout">
                         <Button>Next Workout</Button>
                     </Link>
                 </CardContent>
