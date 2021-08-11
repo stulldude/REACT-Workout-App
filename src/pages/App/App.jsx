@@ -9,10 +9,21 @@ import HomePage from '../HomePage/HomePage'
 import NavBar from '../../components/NavBar/NavBar';
 import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
 import RoutinePage from '../RoutinePage/RoutinePage';
+import * as routineUtil from "../../utilities/routines-service"
 
 export default function App() {
+
+  let localRoutine = null;
+  console.log(routineUtil.getLocalRoutine());
+  try {
+    localRoutine = routineUtil.getLocalRoutine();
+    console.log('The local routine')
+    console.log(localRoutine);
+  } catch (e) {
+    console.log('No Local Routine');
+  }
   const [user, setUser] = useState(getUser());
-  const [currRoutine, setCurrRoutine] = useState(null);
+  const [currRoutine, setCurrRoutine] = useState(localRoutine);
   console.log(currRoutine);
 
   

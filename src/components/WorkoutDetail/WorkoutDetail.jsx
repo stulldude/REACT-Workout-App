@@ -1,10 +1,13 @@
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button'
+import * as routineUtil from '../../utilities/routines-service'
 
 export default function WorkoutDetail({ workout }) {
     // need 3 pieces of info
     // name, sets, and reps
+    
+
     async function handleCountDown(e, reps) {
         console.log(e);
         console.log(e.target.innerHTML);
@@ -18,7 +21,7 @@ export default function WorkoutDetail({ workout }) {
         const btnHold = [];
         for (let i = 0; i < exercise.sets; i++) {
             btnHold.push(
-                <Button onClick={e => handleCountDown(e, exercise.reps)} value={exercise.reps}>{exercise.reps}</Button>
+                <Button onClick={e => handleCountDown(e, exercise.reps)} value={exercise.reps}>&nbsp;</Button>
             )
         }
         buttons.push(
