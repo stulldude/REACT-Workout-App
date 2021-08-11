@@ -42,7 +42,7 @@ export default function App() {
               <OrderHistoryPage />
             </Route>
             <Route path='/home'>
-              <HomePage />
+              <HomePage currRoutine={currRoutine}/>
             </Route>
             <Route path="/routine">
               <RoutinePage currRoutine={currRoutine} setCurrRoutine={setCurrRoutine} />
