@@ -1,4 +1,3 @@
-# MERN-Stack Infrastructure
+#TEMPL8S
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
-
+Workout tracking app built in REACT

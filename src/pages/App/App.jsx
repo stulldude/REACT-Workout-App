@@ -24,6 +24,7 @@ export default function App() {
 
   const [user, setUser] = useState(getUser());
   const [currRoutine, setCurrRoutine] = useState(null);
+  const [userRoutineInfoState, setUserRoutineInfoState] = useState(null);
 
   useEffect(function() {
     async function fetchCurrRoutine() {
@@ -33,6 +34,7 @@ export default function App() {
       }
     }
     fetchCurrRoutine();
+    setUserRoutineInfoState(userRoutineInfo);
   }, [user]);
 
   return (
@@ -56,7 +58,7 @@ export default function App() {
             </Route>
             {currRoutine ? 
             <Route path="/workout">
-              <WorkoutDetail workout={currRoutine.workouts[0]}/>
+              <WorkoutDetail workout={currRoutine.workouts[0]} routineInfo={userRoutineInfo}/>
             </Route>
             :
             <br/>

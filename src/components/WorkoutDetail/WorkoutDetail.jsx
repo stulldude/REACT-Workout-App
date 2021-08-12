@@ -2,8 +2,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button'
 import * as routineUtil from '../../utilities/routines-service'
+import Fab from '@material-ui/core/Fab'
+import AddIcon from '@material-ui/icons/Add'
 
-export default function WorkoutDetail({ workout }) {
+export default function WorkoutDetail({ workout, routineInfo }) {
     // need 3 pieces of info
     // name, sets, and reps
     
@@ -51,6 +53,10 @@ export default function WorkoutDetail({ workout }) {
             {console.log('workout in detail')}
             {console.log(workout.exercises)}
             {buttonsArray}
+            <Fab variant="extended" onClick={() => routineInfo.dayCompleted()} to="/home">
+                <AddIcon />
+                Complete Workout
+            </Fab>
         </>
     );
 }
