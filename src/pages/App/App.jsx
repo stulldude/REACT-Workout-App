@@ -37,7 +37,7 @@ export default function App() {
 
   return (
     <main className="App">
-      {console.log('curr Routine' + currRoutine)};
+      {console.log('curr Routine' + currRoutine)}
       { user ?
         <>
           <NavBar user={user} setUser={setUser} />
