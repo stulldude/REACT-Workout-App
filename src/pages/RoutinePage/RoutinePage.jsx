@@ -6,7 +6,7 @@ import RoutineDetail from "../../components/RoutineDetail/RoutineDetail";
 import Button from '@material-ui/core/Button'
 
 
-export default function RoutinePage({currRoutine, setCurrRoutine}) {
+export default function RoutinePage({currRoutine, setCurrRoutine, user}) {
     const [showRoutines, setShowRoutines] = useState(false);
     const [routineList, setRoutineList] = useState([]);
     useEffect(function() {
@@ -21,7 +21,9 @@ export default function RoutinePage({currRoutine, setCurrRoutine}) {
 
     async function handleShowRoutines() {
         setShowRoutines(!showRoutines);
-    }    
+    }
+    
+    
 
     return (
         <>

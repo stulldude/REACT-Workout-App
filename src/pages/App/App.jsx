@@ -10,11 +10,12 @@ import NavBar from '../../components/NavBar/NavBar';
 import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
 import RoutinePage from '../RoutinePage/RoutinePage';
 import * as routineUtil from "../../utilities/routines-service"
+import * as routineInfoAPI from "../../utilities/routine-info-api"
 
 export default function App() {
 
   let localRoutine = null;
-  console.log(routineUtil.getLocalRoutine());
+  let userRoutineInfo = null
   try {
     localRoutine = routineUtil.getLocalRoutine();
     console.log('The local routine')
@@ -22,11 +23,16 @@ export default function App() {
   } catch (e) {
     console.log('No Local Routine');
   }
-  const [user, setUser] = useState(getUser());
-  const [currRoutine, setCurrRoutine] = useState(localRoutine);
-  console.log(currRoutine);
+  try {
+    console.log('geting user routine info')
+    userRoutineInfo = routineInfoAPI.getUserRoutineInfo();
+    console.log(userRoutineInfo);
+  } catch (e) {
+    console.log(e);
+  }
 
-  
+  const [user, setUser] = useState(getUser());
+  const [currRoutine, setCurrRoutine] = useState(userRoutineInfo.currRoutine);
 
   return (
     <main className="App">
@@ -45,7 +51,7 @@ export default function App() {
               <HomePage currRoutine={currRoutine}/>
             </Route>
             <Route path="/routine">
-              <RoutinePage currRoutine={currRoutine} setCurrRoutine={setCurrRoutine} />
+              <RoutinePage currRoutine={currRoutine} setCurrRoutine={setCurrRoutine} user={user}/>
             </Route>
             {currRoutine ? 
             <Route path="/workout">
