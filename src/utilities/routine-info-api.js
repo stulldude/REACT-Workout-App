@@ -6,8 +6,8 @@ export function getUserRoutineInfo() {
     return sendRequest(`${BASE_URL}`);
 }
 
-export function setUserRoutine(routine) {
-    return sendRequest(`${BASE_URL}/routine/set`, `PUT`, { routine })
+export function setUserRoutine(routineId) {
+    return sendRequest(`${BASE_URL}/${routineId}`, `POST`)
 }
 
 export async function createUserRoutineInfo(userRoutineInfo) {

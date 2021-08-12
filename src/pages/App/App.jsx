@@ -11,28 +11,29 @@ import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
 import RoutinePage from '../RoutinePage/RoutinePage';
 import * as routineUtil from "../../utilities/routines-service"
 import * as routineInfoAPI from "../../utilities/routine-info-api"
+import { useEffect } from 'react';
 
 export default function App() {
 
-  let localRoutine = null;
   let userRoutineInfo = null
   try {
-    localRoutine = routineUtil.getLocalRoutine();
     console.log('The local routine')
-    console.log(localRoutine);
   } catch (e) {
     console.log('No Local Routine');
   }
-  try {
-    console.log('geting user routine info')
-    userRoutineInfo = routineInfoAPI.getUserRoutineInfo();
-    console.log(userRoutineInfo);
-  } catch (e) {
-    console.log(e);
-  }
 
   const [user, setUser] = useState(getUser());
-  const [currRoutine, setCurrRoutine] = useState(userRoutineInfo.currRoutine);
+  const [currRoutine, setCurrRoutine] = useState(null);
+
+  useEffect(function() {
+    async function fetchCurrRoutine() {
+      if (user) {
+        userRoutineInfo = routineInfoAPI.getUserRoutineInfo();
+        setCurrRoutine(userRoutineInfo.routine);
+      }
+    }
+    fetchCurrRoutine();
+  }, [user]);
 
   return (
     <main className="App">

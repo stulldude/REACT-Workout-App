@@ -7,11 +7,10 @@ import * as routineInfoAPI from "../../utilities/routine-info-api"
 
 export default function RoutineCard({routine, setCurrRoutine, handleShow}) {
     function handleClick() {
-        routineInfoAPI.setUserRoutine(routine);
     }
 
     return (
-        <Link onClick={handleShow, setCurrRoutine(routine), handleClick} to='/routine'>
+        <Link onClick={handleShow, setCurrRoutine(routine), () => routineInfoAPI.setUserRoutine(routine._id)} to='/routine'>
             <Card >
                 <CardContent>
                     <div>

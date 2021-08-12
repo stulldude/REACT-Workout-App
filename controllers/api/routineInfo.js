@@ -2,7 +2,6 @@ const RoutineInfo = require('../../models/userRoutineInfo')
 
 module.exports = {
     getUserRoutineInfo,
-    create,
     setUserRoutine,
 }
 
@@ -12,18 +11,11 @@ async function getUserRoutineInfo(req, res) {
 }
 
 async function setUserRoutine(req, res) {
-    const routineInfo = await Order.getUserRoutineInfo(req.user._id);
-    await routineInfo.setUserRoutine(req.body.routine);
-    res.json(routineInfo);
-}
+    const routineInfo = await RoutineInfo.getUserRoutineInfo(req.user._id);
+    console.log(routineInfo);
 
-async function create(req, res) {
-    req.body.user = req.user._id;
-    for (let key in req.body) {
-        if (req.body[key] === "") {
-            delete req.body[key];
-        }
-    }
-    const routineInfo = await RoutineInfo.create(req.body);
+    if (routineInfo.routine && routineInfo.routine._id === req.params.id) return res.json('routine already active');
+    await routineInfo.setCurrRoutine(req.params.id);
+
     res.json(routineInfo);
 }
