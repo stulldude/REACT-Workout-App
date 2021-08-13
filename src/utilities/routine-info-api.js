@@ -3,7 +3,7 @@ import sendRequest from "./send-request";
 const BASE_URL = '/api/routineInfo';
 
 export function getUserRoutineInfo() {
-    return sendRequest(`${BASE_URL}`);
+    return sendRequest(`${BASE_URL}`, "GET");
 }
 
 export function setUserRoutine(routineId) {

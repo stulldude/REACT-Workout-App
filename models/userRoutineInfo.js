@@ -7,7 +7,7 @@ const completedExerciseSchema = new Schema ({
 })
 
 const userRoutineInfoSchema = new Schema ({
-    currentRoutine: { type: Schema.Types.ObjectId, ref: 'Routine', default: null},
+    currentRoutine: { type: Schema.Types.ObjectId, ref: 'Routine'},
     currentDay: { type: Number, default: 0},
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     completedExercises: [completedExerciseSchema],

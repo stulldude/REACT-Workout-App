@@ -29,8 +29,9 @@ export default function App() {
   const [userRoutineInfoState, setUserRoutineInfoState] = useState(null);
   const [workoutIdx, setWorkoutIdx] = useState(null);
   let day = 0;
+  
   useEffect(function() {
-    async function fetchCurrRoutine() {
+    async function fetchCurrInfo() {
       if (user) {
         userRoutineInfo = await routineInfoAPI.getUserRoutineInfo();
         console.log('Routine Info')
@@ -39,8 +40,16 @@ export default function App() {
         console.log(typeof userRoutineInfo.currentRoutine);
         console.log(currRoutine);
         console.log(userRoutineInfoState);
-        await setCurrRoutine(await routineAPI.getOne(userRoutineInfo.currentRoutine));
         await setUserRoutineInfoState(await routineInfoAPI.getUserRoutineInfo());
+      }
+    }
+    fetchCurrInfo();
+  }, [user])
+  
+  useEffect(function() {
+    async function fetchCurrRoutine() {
+      if (userRoutineInfoState != null && userRoutineInfoState.currentRoutine != null) {
+        await setCurrRoutine(await routineAPI.getOne(userRoutineInfoState.currentRoutine));
       }
     }
     fetchCurrRoutine().then(() => {console.log('hi')});
@@ -48,16 +57,31 @@ export default function App() {
     console.log('curr state')
     console.log(currRoutine);
     console.log(userRoutineInfoState)
-  }, [user]);
+  }, [user, userRoutineInfoState]);
 
   useEffect(function() {
-    if (userRoutineInfoState != null && currRoutine != null){
-      console.log(userRoutineInfoState.currentDay);
-      console.log(currRoutine.split);
-      const idx = userRoutineInfoState.currentDay % currRoutine.split;
-      setWorkoutIdx(idx);
+    async function fetchIdx() {
+      if (userRoutineInfoState != null && currRoutine != null){
+        console.log('in use effect')
+        console.log(userRoutineInfoState.currentDay);
+        console.log(currRoutine.split);
+        const idx = userRoutineInfoState.currentDay % currRoutine.split;
+        console.log(idx);
+        handleSet(idx);
+      }
     }
+    fetchIdx();
   }, [currRoutine, userRoutineInfoState]);
+
+  async function updateWorkoutIdx() {
+    const idx = userRoutineInfoState.currentDay % currRoutine.split;
+    console.log(idx);
+    handleSet(idx);
+  }
+
+  async function handleSet(idx) {
+    setWorkoutIdx(idx);
+  }
 
   return (
     <main className="App">
@@ -80,7 +104,12 @@ export default function App() {
             </Route>
             {currRoutine ? 
               <Route path="/workout">
-                <WorkoutDetail workout={currRoutine.workouts[workoutIdx]} routineInfo={userRoutineInfoState} currRoutine={currRoutine} setWorkoutIdx={setWorkoutIdx}/>
+                <WorkoutDetail workout={currRoutine.workouts[workoutIdx]} 
+                  routineInfo={userRoutineInfoState} 
+                  currRoutine={currRoutine} 
+                  setWorkoutIdx={setWorkoutIdx} 
+                  updateWorkoutIdx={updateWorkoutIdx}
+                  setRoutineInfo={setUserRoutineInfoState}/>
               </Route>
               :
               <br/>

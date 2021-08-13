@@ -9,7 +9,6 @@ const exerciseSchema = new Schema ({
     weight: Number,
     rog: {type: Number, default: 5}, // recommended rate of increase
     eod: {type: Number, default: 1}, // every other day. ex: 1 means weight goes ups every time, 2 is eod
-    
 }, {
     timestamps: true,
 });

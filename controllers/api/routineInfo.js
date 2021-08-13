@@ -11,7 +11,7 @@ async function getUserRoutineInfo(req, res) {
     console.log('my routine info');
     console.log(routineInfo);
     console.log('the routine');
-    console.log(routineInfo.currentRoutine)
+    //console.log(routineInfo.currentRoutine)
     res.json(routineInfo);
 }
 
