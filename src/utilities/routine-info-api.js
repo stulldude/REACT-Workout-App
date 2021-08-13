@@ -13,3 +13,7 @@ export function setUserRoutine(routineId) {
 export async function createUserRoutineInfo(userRoutineInfo) {
     return sendRequest(`${BASE_URL}/create`, "POST", userRoutineInfo)
 }
+
+export function dayCompleted() {
+    return sendRequest(`${BASE_URL}/day`, "POST");
+}

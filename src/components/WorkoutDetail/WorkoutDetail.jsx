@@ -2,10 +2,12 @@ import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button'
 import * as routineUtil from '../../utilities/routines-service'
+import * as routineInfoAPI from '../../utilities/routine-info-api'
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add'
+import { Link } from 'react-router-dom'
 
-export default function WorkoutDetail({ workout, routineInfo }) {
+export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWorkoutIdx }) {
     // need 3 pieces of info
     // name, sets, and reps
     
@@ -53,10 +55,15 @@ export default function WorkoutDetail({ workout, routineInfo }) {
             {console.log('workout in detail')}
             {console.log(workout.exercises)}
             {buttonsArray}
-            <Fab variant="extended" onClick={() => routineInfo.dayCompleted()} to="/home">
-                <AddIcon />
-                Complete Workout
-            </Fab>
+            <Link to="/home">
+                <Fab variant="extended" onClick={() => {
+                    routineInfoAPI.dayCompleted();
+                    setWorkoutIdx(routineInfo.currentDay % currRoutine.split);
+                }}>
+                    <AddIcon />
+                    Complete Workout
+                </Fab>
+            </Link>
         </>
     );
 }
