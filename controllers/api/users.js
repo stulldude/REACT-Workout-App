@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../../models/user');
+const Routine = require('../../models/routine')
 
 module.exports = {
   create,
@@ -24,6 +25,7 @@ async function create(req, res) {
   try {
     // Add the user to the database
     const user = await User.create(req.body);
+    const routines = await Routine.find({})
     // token will be a string
     const token = createJWT(user);
     // Yes, we can use res.json to send back just a string

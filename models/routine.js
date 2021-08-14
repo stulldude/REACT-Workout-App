@@ -25,6 +25,7 @@ const routineSchema =  new Schema({
     name: String,  // EX: 5x5 Stronglifts
     type: {type: String, enum: ["Cardio", "Strength", "Hypertrophy", "Other"]},
     split: Number,
+    custom: {type: Boolean, default: false},
     workouts: [workoutSchema],
 }, {
     timestamps: true,

@@ -6,7 +6,7 @@ const Routine = require('./models/routine');
 (async function() {
     await Routine.deleteMany({});
     const routineSeed = await Routine.create([
-        {name: "5x5", type: "Strength", split: 2, workouts: [
+        {name: "5x5", type: "Strength", custom: false, split: 2, workouts: [
             {name: "A", exercises: [
                 {name: "Squat", sets: 5, reps: 5, weight: 60, rog: 5},
                 {name: "Bench", sets: 5, reps: 5, weight: 45, rog: 2.5}, 

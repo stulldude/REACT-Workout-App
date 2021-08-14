@@ -97,7 +97,7 @@ export default function App() {
               <OrderHistoryPage />
             </Route>
             <Route path='/home'>
-              <HomePage currRoutine={currRoutine}/>
+              <HomePage currRoutine={currRoutine} userRoutineInfo={userRoutineInfoState} workoutIdx={workoutIdx}/>
             </Route>
             <Route path="/routine">
               <RoutinePage currRoutine={currRoutine} setCurrRoutine={setCurrRoutine} user={user}/>

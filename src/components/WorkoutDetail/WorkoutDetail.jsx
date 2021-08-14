@@ -61,11 +61,11 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
         let innerArr = [];
         for (let i = 0; i < exercise.sets; i++) {
             btnHold.push(
-                <Button className={classes.button} 
+                <Fab className={classes.button} 
                     onClick={e => handleCountDown(e, exercise.reps, i, innerArr, idx)} 
                     value={null}
                     isempty={true}>&nbsp;
-                </Button>
+                </Fab>
             )
             innerArr.push(false);
         }

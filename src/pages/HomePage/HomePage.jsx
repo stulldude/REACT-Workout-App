@@ -3,7 +3,6 @@ import './HomePage.css';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid'
 
@@ -37,8 +36,7 @@ const useStyles = makeStyles({
 });
 
 
-export default function HomePage({ currRoutine, user }) {
-    const [routineInfo, setRoutineInfo] = useState(null);
+export default function HomePage({ currRoutine, user, userRoutineInfo, workoutIdx}) {
     const classes = useStyles();
 
     // useEffect(function() {
@@ -52,16 +50,16 @@ export default function HomePage({ currRoutine, user }) {
     return (
         <>
         <Grid container spacing={0} className={classes.grid}>
+            {currRoutine ?
+            <>
             <Card className={classes.control}>
                 <CardContent className={classes.card}>
-                    <Typography>USER CURR WORKOUT</Typography>
-                    <Typography>DAYS COMPLETED: X</Typography>
-                    <Typography>WHAY DAY: E.G. CHEST</Typography>
-                    <Typography>NEXT WORKOUT: ? TODAY : 4/20</Typography>
+                    <Typography>Current Routine: {currRoutine.name}</Typography>
+                    <Typography>DAYS COMPLETED: {userRoutineInfo.currentDay}</Typography>
+                    {/* <Typography>"{currRoutine.workouts[workoutIdx]}" Day</Typography> */}
                 </CardContent>
             </Card>
             <br/>
-            {currRoutine ?
             <Link to="/workout">
                 <Card className={classes.control}>
                     <CardContent className={classes.card}>
@@ -69,6 +67,7 @@ export default function HomePage({ currRoutine, user }) {
                     </CardContent>
                 </Card>
             </Link>
+            </>
             :
             null
         }
