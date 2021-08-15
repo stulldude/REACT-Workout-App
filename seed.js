@@ -8,12 +8,12 @@ const Routine = require('./models/routine');
     const routineSeed = await Routine.create([
         {name: "5x5", type: "Strength", custom: false, split: 2, workouts: [
             {name: "A", exercises: [
-                {name: "Squat", sets: 5, reps: 5, weight: 60, rog: 5},
+                {name: "Squat", sets: 5, reps: 5, weight: 45, rog: 10},
                 {name: "Bench", sets: 5, reps: 5, weight: 45, rog: 2.5}, 
                 {name: "Overhead Press", sets: 5, reps: 5, weight: 45, rog: 2.5},
             ]},
             {name: "B", exercises: [
-                {name: "Squat", sets: 5, reps: 5, weight: 60, rog: 5},
+                {name: "Squat", sets: 5, reps: 5, weight: 50, rog: 10},
                 {name: "Bentover Row", sets: 5, reps: 5, weight: 45, rog: 2.5},
                 {name: "Deadlift", sets: 1, reps: 5, weight: 135, rog: 5}, 
         ]}]},

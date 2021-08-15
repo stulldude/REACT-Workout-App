@@ -109,7 +109,8 @@ export default function App() {
                   currRoutine={currRoutine} 
                   setWorkoutIdx={setWorkoutIdx} 
                   updateWorkoutIdx={updateWorkoutIdx}
-                  setRoutineInfo={setUserRoutineInfoState}/>
+                  setRoutineInfo={setUserRoutineInfoState}
+                  workoutIdx={workoutIdx}/>
               </Route>
               :
               <br/>

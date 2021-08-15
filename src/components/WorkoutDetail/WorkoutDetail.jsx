@@ -2,6 +2,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button'
 import * as routineUtil from '../../utilities/routines-service'
+import * as routineAPI from '../../utilities/routines-api'
 import * as routineInfoAPI from '../../utilities/routine-info-api'
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add'
@@ -25,7 +26,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWorkoutIdx, updateWorkoutIdx, setRoutineInfo }) {
+export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWorkoutIdx, updateWorkoutIdx, setRoutineInfo, workoutIdx }) {
     // need 3 pieces of info
     // name, sets, and reps
     
@@ -95,6 +96,10 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
         workout.exercises.forEach((exercise, idx) => {
             if (completeArr[idx].every(ele => ele == true)) {
                 console.log(exercise.name + ' was fully completed')
+                console.log(`${exercise.name}'s weight was ${exercise.weight}.`)
+                console.log(currRoutine._id);
+                routineAPI.handleROG(currRoutine._id, workoutIdx, idx);
+                console.log(`${exercise.name}'s weight is now ${exercise.weight}.`)
             } else console.log(exercise.name + ' was not fully completed')
         })
     }
@@ -105,7 +110,7 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
             {console.log(workout.exercises)}
             {console.log('buttons:')}
             {console.log(buttonsArray.forEach(button => console.log(button.innerHTML)))}
-
+            {console.log(currRoutine)}
             {buttonsArray}
             <Link to="/home">
                 <Fab variant="extended" onClick={async () => {

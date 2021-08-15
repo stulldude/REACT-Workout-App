@@ -26,7 +26,7 @@ export default function RoutineCard({routine, setCurrRoutine, handleShow}) {
     }
 
     return (
-        <Link onClick={() => handleClick()} to='/routine'>
+        <Link onClick={() => handleClick()} to='/home'>
             <Card className={classes.card}>
                 <CardContent>
                     <div>

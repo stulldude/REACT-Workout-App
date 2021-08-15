@@ -7,5 +7,9 @@ export function getAll() {
 }
 
 export function getOne(id) {
-    return sendRequest(`${BASE_URL}/${id}`, 'GET')
+    return sendRequest(`${BASE_URL}/${id}`, 'GET');
+}
+
+export function handleROG(id, wIdx, eIdx) {
+    return sendRequest(`${BASE_URL}/${id}/${wIdx}/${eIdx}`, 'PUT');
 }
