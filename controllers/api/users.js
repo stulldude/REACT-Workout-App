@@ -25,7 +25,30 @@ async function create(req, res) {
   try {
     // Add the user to the database
     const user = await User.create(req.body);
-    const routines = await Routine.find({})
+
+    // find base routines
+    const routines = await Routine.find({custom: false})
+
+    // create routines that belong to the user
+    routines.forEach(routine => {
+      let routObj = routine.toObject();
+      
+      // delete the base routineId, set it to custom and assign its user
+      delete routObj._id;
+      routObj.custom = true;
+      routObj.user = user._id;
+
+      // do the same for each workout
+      routObj.workouts.forEach(workout => {
+        delete workout._id;
+        
+        //do the same for each exercise
+        workout.exercises.forEach(exercise => {
+          delete exercise._id;
+        })
+      })
+      Routine.create(routObj);
+    })
     // token will be a string
     const token = createJWT(user);
     // Yes, we can use res.json to send back just a string

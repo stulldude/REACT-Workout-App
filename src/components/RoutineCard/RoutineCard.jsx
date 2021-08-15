@@ -18,11 +18,15 @@ const useStyles = makeStyles({
 
 export default function RoutineCard({routine, setCurrRoutine, handleShow}) {
     const classes = useStyles();
-    function handleClick() {
+    async function handleClick() {
+        console.log(routine);
+        handleShow();
+        setCurrRoutine(routine);
+        routineInfoAPI.setUserRoutine(routine._id)
     }
 
     return (
-        <Link onClick={handleShow, setCurrRoutine(routine), () => routineInfoAPI.setUserRoutine(routine._id)} to='/routine'>
+        <Link onClick={() => handleClick()} to='/routine'>
             <Card className={classes.card}>
                 <CardContent>
                     <div>

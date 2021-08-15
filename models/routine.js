@@ -26,6 +26,7 @@ const routineSchema =  new Schema({
     type: {type: String, enum: ["Cardio", "Strength", "Hypertrophy", "Other"]},
     split: Number,
     custom: {type: Boolean, default: false},
+    user: {type: Schema.Types.ObjectId, ref: 'User', default: null },
     workouts: [workoutSchema],
 }, {
     timestamps: true,

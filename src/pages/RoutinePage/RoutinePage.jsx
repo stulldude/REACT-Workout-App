@@ -29,7 +29,7 @@ export default function RoutinePage({currRoutine, setCurrRoutine, user}) {
         <>
         {currRoutine ? 
             <>
-                <Button onClick={handleShowRoutines} >{ showRoutines ? 'Hid' : 'Change Routine' }</Button>
+                <Button onClick={handleShowRoutines} >{ showRoutines ? 'Hide' : 'Change Routine' }</Button>
                 <RoutineDetail routine={currRoutine} />
                 { showRoutines ? <RoutineIndex routineList={routineList} setCurrRoutine={setCurrRoutine} handleShow={handleShowRoutines}/> : '' }
             </>

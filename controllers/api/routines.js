@@ -8,7 +8,9 @@ module.exports = {
 }
 
 async function index(req, res) {
-    const routines = await Routine.find({});
+    console.log(req.user._id)
+    const routines = await Routine.find({ user: req.user._id });
+    console.log(routines);
     res.json(routines);
 }
 
