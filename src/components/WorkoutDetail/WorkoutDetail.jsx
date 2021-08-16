@@ -41,16 +41,6 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
     
     const completeArr = []
     const classes = useStyles();
-    const [open, setOpen] = useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
 
     async function handleCountDown(e, reps, idx, arr, upperIdx) {
         console.log(e.currentTarget.value);

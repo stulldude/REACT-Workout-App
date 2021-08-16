@@ -72,7 +72,7 @@ export default function HomePage({ currRoutine, user, userRoutineInfo, workoutId
             null
         }
             <br/>
-            <Link to="/">
+            <Link to="/progress">
                 <Card className={classes.control}>
                     <CardContent className={classes.card}>
                         <Typography>Progress</Typography>

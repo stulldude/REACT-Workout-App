@@ -10,6 +10,7 @@ import HomePage from '../HomePage/HomePage'
 import NavBar from '../../components/NavBar/NavBar';
 import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
 import RoutinePage from '../RoutinePage/RoutinePage';
+import ProgressPage from '../ProgressPage/ProgressPage';
 import * as routineAPI from "../../utilities/routines-api"
 import * as routineUtil from "../../utilities/routines-service"
 import * as routineInfoAPI from "../../utilities/routine-info-api"
@@ -101,6 +102,9 @@ export default function App() {
             </Route>
             <Route path="/routine">
               <RoutinePage currRoutine={currRoutine} setCurrRoutine={setCurrRoutine} user={user}/>
+            </Route>
+            <Route path="/progress">
+              <ProgressPage userRoutineInfo={userRoutineInfoState}/>
             </Route>
             {currRoutine ? 
               <Route path="/workout">
