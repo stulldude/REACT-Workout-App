@@ -7,6 +7,8 @@ export default function NavBar(props) {
   function handleLogOut() {
     userService.logOut();
     props.setUser(null);
+    props.setCurrRoutine(null);
+    props.setUserRoutineInfoState(null);
   }
 
   return (

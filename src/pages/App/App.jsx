@@ -89,7 +89,7 @@ export default function App() {
       {console.log('curr Routine' + currRoutine)}
       { user ?
         <>
-          <NavBar user={user} setUser={setUser} />
+          <NavBar user={user} setUser={setUser} setCurrRoutine={setCurrRoutine} setUserRoutineInfoState={setUserRoutineInfoState}/>
           <Switch>
             <Route path="/orders/new">
               <NewOrderPage />
