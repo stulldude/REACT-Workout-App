@@ -103,6 +103,10 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
             } else console.log(exercise.name + ' was not fully completed')
         })
     }
+
+    function saveUserExercises() {
+        routineInfoAPI.addCompletedExercises(workoutIdx);
+    }
     
     return (
         <>
@@ -121,6 +125,7 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
                     });
                     setWorkoutIdx(routineInfo.currentDay % currRoutine.split);
                     updateWorkoutIdx();
+                    saveUserExercises();
                     handleROG();
                 }}>
                     <AddIcon />

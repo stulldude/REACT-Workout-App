@@ -11,9 +11,13 @@ export function setUserRoutine(routineId) {
 }
 
 export async function createUserRoutineInfo(userRoutineInfo) {
-    return sendRequest(`${BASE_URL}/create`, "POST", userRoutineInfo)
+    return sendRequest(`${BASE_URL}/create`, "POST", userRoutineInfo);
 }
 
 export function dayCompleted() {
     return sendRequest(`${BASE_URL}/day`, "POST");
+}
+
+export async function addCompletedExercises(workoutIdx) {
+    return sendRequest(`${BASE_URL}/${workoutIdx}`, "PUT");
 }

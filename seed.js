@@ -16,7 +16,8 @@ const Routine = require('./models/routine');
                 {name: "Squat", sets: 5, reps: 5, weight: 50, rog: 10},
                 {name: "Bentover Row", sets: 5, reps: 5, weight: 45, rog: 2.5},
                 {name: "Deadlift", sets: 1, reps: 5, weight: 135, rog: 5}, 
-        ]}]},
+            ]}
+        ]},
         {name: "Boring But Big", type: "Hypertrophy", custom: false, split: 2, workouts: [
             {name: "Day 1", exercises: [
                 {name: "Military Press", sets: 3, reps: 5, weight: 45, rog: 0},

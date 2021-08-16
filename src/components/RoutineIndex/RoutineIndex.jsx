@@ -8,6 +8,7 @@ export default function RoutineIndex({ routineList, setCurrRoutine, handleShow }
 
     return (
         <>
+            {console.log(`${handleShow} is handleShow`)}
             { routines }
         </>
     );
