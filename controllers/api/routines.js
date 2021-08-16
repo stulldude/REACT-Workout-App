@@ -5,6 +5,7 @@ const Routine = require('../../models/routine')
 module.exports = {
     index,
     get,
+    handleROG,
     updateWeight,
 }
 
@@ -22,11 +23,20 @@ async function get(req, res) {
     res.json(routine);
 }
 
-async function updateWeight(req, res) {
+async function handleROG(req, res) {
     const routine = await Routine.findById(req.params.id);
     console.log(routine.name);
     const exercise = routine.workouts[req.params.wIdx].exercises[req.params.eIdx];
     exercise.weight = exercise.weight + exercise.rog;
+    routine.save();
+    res.json(routine);
+}
+
+async function updateWeight(req, res) {
+    const routine = await Routine.findById(req.params.id);
+    console.log('here');
+    const exercise = routine.workouts[req.params.wIdx].exercises[req.params.eIdx];
+    exercise.weight = req.params.newWeight;
     routine.save();
     res.json(routine);
 }

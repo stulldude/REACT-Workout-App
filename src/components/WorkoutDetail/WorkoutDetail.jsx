@@ -6,8 +6,17 @@ import * as routineAPI from '../../utilities/routines-api'
 import * as routineInfoAPI from '../../utilities/routine-info-api'
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add'
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
+import { useState } from 'react'
+import ChangeWeightButton from '../ChangeWeightButton/ChangeWeightButton';
 
 const useStyles = makeStyles({
     card: {
@@ -32,7 +41,16 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
     
     const completeArr = []
     const classes = useStyles();
-    
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
 
     async function handleCountDown(e, reps, idx, arr, upperIdx) {
         console.log(e.currentTarget.value);
@@ -78,7 +96,7 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
                 <CardContent>
                     <div>
                         <p>{exercise.name}</p>
-                        <p>{exercise.weight}</p>
+                        <ChangeWeightButton currRoutine={currRoutine} exercise={exercise} workoutIdx={workoutIdx} eIdx={idx}/>
                     </div>
                     <div>
                         {btnHold}

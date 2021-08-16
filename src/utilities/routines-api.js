@@ -13,3 +13,8 @@ export function getOne(id) {
 export function handleROG(id, wIdx, eIdx) {
     return sendRequest(`${BASE_URL}/${id}/${wIdx}/${eIdx}`, 'PUT');
 }
+
+export function updateWeight(id, wIdx, eIdx, newWeight) {
+    return sendRequest(`${BASE_URL}/${id}/${wIdx}/${eIdx}/${newWeight}`, 'PUT');
+}
+
