@@ -13,9 +13,10 @@ export default function NavBar(props) {
 
   return (
     <header>
-      TEMPL<img className='logo' src={process.env.PUBLIC_URL + '/templ8s.svg'} />S
-      &nbsp;&nbsp;<Link onClick={handleLogOut} to="">Log Out</Link>
-      <hr />
+      <div className="title-bar">
+        <img className='logo' src={process.env.PUBLIC_URL + '/templ8s.png'} />
+        <Link className="logout" onClick={handleLogOut} to="">Log Out</Link>
+      </div>
       <nav>
         <Link to="/home">Home Page</Link>
         &nbsp; | &nbsp;

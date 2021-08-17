@@ -84,14 +84,13 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
             <>
             <Card>
                 <CardContent>
-                    <div>
-                        <p>{exercise.name}</p>
-                        <ChangeWeightButton currRoutine={currRoutine} exercise={exercise} workoutIdx={workoutIdx} eIdx={idx}/>
-                    </div>
-                    <div>
+                    <div className="card-row">
+                        <div>
+                            <p>{exercise.name}</p>
+                            <ChangeWeightButton currRoutine={currRoutine} exercise={exercise} workoutIdx={workoutIdx} eIdx={idx}/>
+                        </div>
                         {btnHold}
                     </div>
-                    <br />
                 </CardContent>
             </Card>
             </>

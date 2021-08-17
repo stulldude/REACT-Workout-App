@@ -7,7 +7,8 @@ export default function AuthPage({ setUser }) {
 
   return (
     <main>
-      <h1>AuthPage</h1>
+      <img className='logo' src={process.env.PUBLIC_URL + '/templ8syellow.png'} />
+      <br/>
       <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'Sign Up': 'Log In'}</button>
       {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
     </main>
