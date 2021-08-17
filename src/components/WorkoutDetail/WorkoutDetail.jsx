@@ -22,6 +22,7 @@ import ChangeWeightButton from '../ChangeWeightButton/ChangeWeightButton';
 const useStyles = makeStyles({
     card: {
         width: "100%",
+        height: "90%",
     },
     control: {
         width: "10vmin",
@@ -41,6 +42,17 @@ const useStyles = makeStyles({
         
         justifyContent: "center",
         alignContent: "center",
+    },
+    colOne: {
+        display: "flex",
+        flexDirection: "column",
+        margin: "0",
+        justifyContent: "left",
+        justifySelf: "left",
+        justifyItems: "left",
+        alignItems: "left",
+        alignContent: "left",
+        alignSelf: "left"
     },
     colTwo: {
         display: "flex",
@@ -100,8 +112,8 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
                 <Card className={classes.control}>
                     <CardContent className={classes.card}>
                         <div className="card-row">
-                            <div className="colOne">
-                                <p>{exercise.name}</p>
+                            <div className={classes.colOne}>
+                                <p>{exercise.name}<br />{exercise.sets}×{exercise.reps}</p>
                                 <ChangeWeightButton currRoutine={currRoutine} exercise={exercise} workoutIdx={workoutIdx} eIdx={idx} key={idx}/>
                             </div>
                             <div className={classes.colTwo}>
