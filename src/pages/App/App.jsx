@@ -26,8 +26,8 @@ export default function App() {
   }
 
   const [user, setUser] = useState(getUser());
-  const [currRoutine, setCurrRoutine] = useState(null);
-  const [userRoutineInfoState, setUserRoutineInfoState] = useState(null);
+  const [currRoutine, setCurrRoutine] = useState({workouts: [{exercises: []}]});
+  const [userRoutineInfoState, setUserRoutineInfoState] = useState({completedExercises: []});
   const [workoutIdx, setWorkoutIdx] = useState(null);
   let day = 0;
   
@@ -104,7 +104,7 @@ export default function App() {
               <RoutinePage currRoutine={currRoutine} setCurrRoutine={setCurrRoutine} user={user}/>
             </Route>
             <Route path="/progress">
-              <ProgressPage userRoutineInfo={userRoutineInfoState}/>
+              <ProgressPage userRoutineInfo={userRoutineInfoState} inContainer={false} x="40vmin" y="15vmin"/>
             </Route>
             {currRoutine ? 
               <Route path="/workout">
@@ -125,7 +125,6 @@ export default function App() {
         :
         <AuthPage setUser={setUser} />
       }
-      <Button onClick={() => setWorkoutIdx(workoutIdx+1)}>{workoutIdx}</Button>
     </main>
   );
 }

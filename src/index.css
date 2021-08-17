@@ -27,7 +27,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--grey);
-  padding: 2vmin;
+  padding: 0vmin;
   height: 100vh;
 }
 
@@ -192,4 +192,5 @@ h1 {
 .card-row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }

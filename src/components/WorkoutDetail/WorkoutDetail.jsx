@@ -1,4 +1,5 @@
 import CardContent from '@material-ui/core/CardContent';
+import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button'
 import * as routineUtil from '../../utilities/routines-service'
@@ -20,18 +21,32 @@ import ChangeWeightButton from '../ChangeWeightButton/ChangeWeightButton';
 
 const useStyles = makeStyles({
     card: {
-        height: "25vmin",
-        maxHeight: "250px",
-        width: "25vmin",
-        maxWidth: "250px",
-        backgroundColor: "TEAL"
+        width: "100%",
     },
     control: {
-        padding: "10px",
-        margin: "10px"
+        width: "10vmin",
+        minWidth: "500px",
+        height: "5vmin",
+        minHeight: "140px",
+        border: '2px solid WHITE',
     },
     button: {
         backgroundColor: "grey",
+    },
+    classRow: {
+        height: "100%",
+        width: "100%"
+    },
+    grid: {
+        
+        justifyContent: "center",
+        alignContent: "center",
+    },
+    colTwo: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        alignContent: "center",
     }
 });
 
@@ -81,20 +96,23 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
         completeArr.push(innerArr);
         console.log(completeArr);
         buttons.push(
-            <>
-            <Card>
-                <CardContent>
-                    <div className="card-row">
-                        <div>
-                            <p>{exercise.name}</p>
-                            <ChangeWeightButton currRoutine={currRoutine} exercise={exercise} workoutIdx={workoutIdx} eIdx={idx}/>
+            <Grid item>
+                <Card className={classes.control}>
+                    <CardContent className={classes.card}>
+                        <div className="card-row">
+                            <div className="colOne">
+                                <p>{exercise.name}</p>
+                                <ChangeWeightButton currRoutine={currRoutine} exercise={exercise} workoutIdx={workoutIdx} eIdx={idx} key={idx}/>
+                            </div>
+                            <div className={classes.colTwo}>
+                                {btnHold}
+                            </div>
                         </div>
-                        {btnHold}
-                    </div>
-                </CardContent>
-            </Card>
-            </>
+                    </CardContent>
+                </Card>
+            </Grid>
         )
+        console.log(buttons);
         return buttons;
     }
     const buttonsArray = workout.exercises.map((exercise, idx) => handleSets(exercise, idx));
@@ -122,7 +140,11 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
             {console.log('buttons:')}
             {console.log(buttonsArray.forEach(button => console.log(button.innerHTML)))}
             {console.log(currRoutine)}
-            {buttonsArray}
+            <br/>
+            <Grid container direction="column" spacing={1} className={classes.grid}>
+                {buttonsArray}
+            </Grid>
+            <br/>
             <Link to="/home">
                 <Fab variant="extended" onClick={async () => {
                     await routineInfoAPI.dayCompleted();

@@ -21,22 +21,22 @@ export default function RoutineCard({routine, setCurrRoutine, handleShow}) {
     async function handleClick() {
         console.log(`${handleShow} is handle show in card`);
         console.log(routine);
-        handleShow();
+        handleShow()
         setCurrRoutine(routine);
         routineInfoAPI.setUserRoutine(routine._id)
     }
 
     return (
-        <Link onClick={() => handleClick()} to='/home'>
-            <Card className={classes.card}>
-                <CardContent>
-                    <div>
-                        <Typography>{routine.name}</Typography>
-                        <Typography>{routine.type} Routine</Typography>
-                    </div>
-                        <Typography>{routine.split} Day Split</Typography>
-                </CardContent>
-            </Card>
-        </Link>
+            <Link onClick={() => handleClick()} to='/home'>
+                <Card className={classes.card}>
+                    <CardContent>
+                        <div>
+                            <Typography>{routine.name}</Typography>
+                            <Typography>{routine.type} Routine</Typography>
+                        </div>
+                            <Typography>{routine.split} Day Split</Typography>
+                    </CardContent>
+                </Card>
+            </Link>
     )
 }

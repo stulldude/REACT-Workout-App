@@ -14,15 +14,10 @@ export default function NavBar(props) {
   return (
     <header>
       <div className="title-bar">
-        <img className='logo' src={process.env.PUBLIC_URL + '/templ8s.png'} />
+        <Link to="/home"><img className='logo' src={process.env.PUBLIC_URL + '/templ8s.png'} /></Link>
         <Link className="logout" onClick={handleLogOut} to="">Log Out</Link>
       </div>
-      <nav>
-        <Link to="/home">Home Page</Link>
-        &nbsp; | &nbsp;
-        <Link to="/orders/new">New Order</Link>
-        &nbsp;&nbsp;<span>Welcome, {props.user.name}</span>
-      </nav>
+      <nav>Welcome, {props.user.name}</nav>
     </header>
   );
 }
