@@ -30,6 +30,8 @@ const useStyles = makeStyles({
         height: "5vmin",
         minHeight: "140px",
         border: '2px solid WHITE',
+        background: "linear-gradient(160deg, rgba(255,255,255,1) 25%, rgba(250,164,50,0.5368522408963585) 100%)",
+
     },
     button: {
         backgroundColor: "grey",
