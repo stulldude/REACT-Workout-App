@@ -4,8 +4,6 @@ import './App.css';
 import { getUser } from '../../utilities/users-service';
 import Button from '@material-ui/core/Button'
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import HomePage from '../HomePage/HomePage'
 import NavBar from '../../components/NavBar/NavBar';
 import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
@@ -91,12 +89,6 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} setCurrRoutine={setCurrRoutine} setUserRoutineInfoState={setUserRoutineInfoState}/>
           <Switch>
-            <Route path="/orders/new">
-              <NewOrderPage />
-            </Route>
-            <Route path="/orders">
-              <OrderHistoryPage />
-            </Route>
             <Route path='/home'>
               <HomePage currRoutine={currRoutine} userRoutineInfo={userRoutineInfoState} workoutIdx={workoutIdx}/>
             </Route>
