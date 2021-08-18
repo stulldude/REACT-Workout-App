@@ -8,13 +8,20 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     card: {
-        height: "25vmin",
+        height: "30vmin",
         maxHeight: "250px",
-        width: "25vmin",
+        minHeight: "160px",
+        width: "30vmin",
         maxWidth: "250px",
-        backgroundColor: "TEAL"
+        minWidth: "160px"
     },
-})
+    control: {
+      padding: "0px",
+      margin: "10px",
+      border: '2px solid WHITE',
+      background: 'linear-Gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,184,68,1) 100%)',
+    },
+});
 
 export default function RoutineCard({routine, setCurrRoutine, handleShow}) {
     const classes = useStyles();
@@ -28,8 +35,8 @@ export default function RoutineCard({routine, setCurrRoutine, handleShow}) {
 
     return (
             <Link onClick={() => handleClick()} to='/home'>
-                <Card className={classes.card}>
-                    <CardContent>
+                <Card className={classes.control}>
+                    <CardContent className={classes.card}>
                         <div>
                             <Typography>{routine.name}</Typography>
                             <Typography>{routine.type} Routine</Typography>

@@ -1,16 +1,15 @@
 import { useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import './App.css';
-import { getUser } from '../../utilities/users-service';
-import Button from '@material-ui/core/Button'
-import AuthPage from '../AuthPage/AuthPage';
-import HomePage from '../HomePage/HomePage'
-import NavBar from '../../components/NavBar/NavBar';
-import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
-import RoutinePage from '../RoutinePage/RoutinePage';
-import ProgressPage from '../ProgressPage/ProgressPage';
-import * as routineAPI from "../../utilities/routines-api"
-import * as routineUtil from "../../utilities/routines-service"
+import { Redirect, Route, Switch } from "react-router-dom";
+import "./App.css";
+import { getUser } from "../../utilities/users-service";
+import AuthPage from "../AuthPage/AuthPage";
+import HomePage from "../HomePage/HomePage";
+import NavBar from "../../components/NavBar/NavBar";
+import WorkoutDetail from "../../components/WorkoutDetail/WorkoutDetail";
+import RoutinePage from "../RoutinePage/RoutinePage";
+import ProgressPage from "../ProgressPage/ProgressPage";
+import * as routineAPI from "../../utilities/routines-api";
+
 import * as routineInfoAPI from "../../utilities/routine-info-api"
 import { useEffect } from 'react';
 
@@ -24,7 +23,7 @@ export default function App() {
   }
 
   const [user, setUser] = useState(getUser());
-  const [currRoutine, setCurrRoutine] = useState({workouts: [{exercises: []}]});
+  const [currRoutine, setCurrRoutine] = useState(null);
   const [userRoutineInfoState, setUserRoutineInfoState] = useState({completedExercises: []});
   const [workoutIdx, setWorkoutIdx] = useState(null);
   let day = 0;
@@ -90,7 +89,7 @@ export default function App() {
           <NavBar user={user} setUser={setUser} setCurrRoutine={setCurrRoutine} setUserRoutineInfoState={setUserRoutineInfoState}/>
           <Switch>
             <Route path='/home'>
-              <HomePage currRoutine={currRoutine} userRoutineInfo={userRoutineInfoState} workoutIdx={workoutIdx}/>
+              <HomePage user={user} currRoutine={currRoutine} userRoutineInfo={userRoutineInfoState} workoutIdx={workoutIdx}/>
             </Route>
             <Route path="/routine">
               <RoutinePage currRoutine={currRoutine} setCurrRoutine={setCurrRoutine} user={user}/>

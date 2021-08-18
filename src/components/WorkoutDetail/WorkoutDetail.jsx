@@ -129,9 +129,10 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
         console.log(buttons);
         return buttons;
     }
-    const buttonsArray = workout.exercises.map((exercise, idx) => handleSets(exercise, idx));
+    const buttonsArray = workout ? workout.exercises.map((exercise, idx) => handleSets(exercise, idx)) : null;
 
     function handleROG() {
+        if (!workout) return null;
         workout.exercises.forEach((exercise, idx) => {
             if (completeArr[idx].every(ele => ele == true)) {
                 console.log(exercise.name + ' was fully completed')
@@ -149,11 +150,6 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
     
     return (
         <>
-            {console.log('workout in detail')}
-            {console.log(workout.exercises)}
-            {console.log('buttons:')}
-            {console.log(buttonsArray.forEach(button => console.log(button.innerHTML)))}
-            {console.log(currRoutine)}
             <br/>
             <Grid container direction="column" spacing={1} className={classes.grid}>
                 {buttonsArray}

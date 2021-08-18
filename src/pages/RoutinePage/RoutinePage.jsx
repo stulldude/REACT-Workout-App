@@ -36,7 +36,6 @@ export default function RoutinePage({currRoutine, setCurrRoutine, user}) {
             </> 
             :
             <RoutineIndex routineList={routineList} setCurrRoutine={setCurrRoutine} handleShow={handleShowRoutines}/>
-
             // <RoutineDetail routine={currRoutine} />
         }
         </>

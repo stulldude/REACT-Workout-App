@@ -3,9 +3,9 @@ import './HomePage.css';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid'
 import ProgressPage from '../ProgressPage/ProgressPage';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     card: {
@@ -15,6 +15,12 @@ const useStyles = makeStyles({
         width: "30vmin",
         maxWidth: "400px",
         minWidth: "280px"
+    },
+    control: {
+      padding: "0px",
+      margin: "10px",
+      border: '2px solid WHITE',
+      background: 'linear-Gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,184,68,1) 100%)',
     },
     bullet: {
       display: 'inline-block',
@@ -26,12 +32,6 @@ const useStyles = makeStyles({
     },
     pos: {
       marginBottom: 12,
-    },
-    control: {
-      padding: "0px",
-      margin: "10px",
-      border: '2px solid WHITE',
-      background: 'linear-Gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,184,68,1) 100%)',
     },
     grid: {
         justifyContent: "center",
@@ -62,10 +62,13 @@ export default function HomePage({ currRoutine, user, userRoutineInfo, workoutId
                 <>
                 <Card className={classes.control}>
                     <CardContent className={classes.card}>
-                        <Typography>CURRENT ROUTINE: {currRoutine.name}</Typography>
-                        <Typography>DAYS COMPLETED: {userRoutineInfo.currentDay}</Typography>
-                        <Typography>GOAL: {currRoutine.type}</Typography>
-                        <Typography>{currRoutine.workouts.length} DAY SPLIT</Typography>
+                        <Typography className={classes.title}>Snapshot</Typography>
+                        <div>
+                            <Typography>CURRENT ROUTINE: {currRoutine.name}</Typography>
+                            <Typography>DAYS COMPLETED: {userRoutineInfo.currentDay}</Typography>
+                            <Typography>GOAL: {currRoutine.type}</Typography>
+                            <Typography>{currRoutine.workouts.length} DAY SPLIT</Typography>
+                        </div>
                         {/* <Typography>"{currRoutine.workouts[workoutIdx]}" Day</Typography> */}
                     </CardContent>
                 </Card>
@@ -84,6 +87,7 @@ export default function HomePage({ currRoutine, user, userRoutineInfo, workoutId
             </Grid>
             <Grid container item spacing={0} className={classes.grid}>
                 <br/>
+                {currRoutine ?
                 <Link className={classes.link} to="/progress">
                     <Card className={classes.control}>
                         <CardContent className={classes.card}>
@@ -92,6 +96,9 @@ export default function HomePage({ currRoutine, user, userRoutineInfo, workoutId
                         </CardContent>
                     </Card>
                 </Link>
+                :
+                null
+                }
                 <br/>
                 <Link className={classes.link} to="/routine">
                     <Card className={classes.control}>  
