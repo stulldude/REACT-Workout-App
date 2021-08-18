@@ -112,6 +112,7 @@ export default function App() {
             }
             <Redirect to="/home" />
           </Switch>
+          <Redirect to="/home" />
         </>
         :
         <AuthPage setUser={setUser} />

@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import { useHistory } from "react-router-dom";
 
 export default class SignUpForm extends Component {
   state = {
@@ -38,6 +39,7 @@ export default class SignUpForm extends Component {
       // An error occurred
       this.setState({ error: 'Sign Up Failed - Try Again'});
     }
+
   };
 
   // Must override the render method
@@ -46,6 +48,7 @@ export default class SignUpForm extends Component {
   // is to return the UI as JSX
   render() {
     const disable = this.state.password !== this.state.confirm;
+
     return (
       <div className="auth-body">
         <div className="form-container">

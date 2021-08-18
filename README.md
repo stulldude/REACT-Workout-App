@@ -17,6 +17,18 @@ View a visualization of your progress by visiting the progress page which shows 
 - CSS
 - SVG logo created in Inkscape
 
+## SCREENSHOTS
+
+Login and be greeted with the home page.
+![](https://i.imgur.com/0veRgI8.png | width=250)
+
+Choose a routine from the given list.
+![](https://i.imgur.com/dBXmHs1.png | width=250)
+
+Start tracking your workout!
+![](https://i.imgur.com/I6xUzFV.png | width=250)
+
+
 ## GOALS
 
 - User created Templ8s
