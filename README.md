@@ -20,13 +20,13 @@ View a visualization of your progress by visiting the progress page which shows 
 ## SCREENSHOTS
 
 Login and be greeted with the home page.
-![](https://i.imgur.com/0veRgI8.png | width=250)
+![](https://i.imgur.com/0veRgI8.png)
 
 Choose a routine from the given list.
-![](https://i.imgur.com/dBXmHs1.png | width=250)
+![](https://i.imgur.com/dBXmHs1.png)
 
 Start tracking your workout!
-![](https://i.imgur.com/I6xUzFV.png | width=250)
+![](https://i.imgur.com/I6xUzFV.png)
 
 
 ## GOALS
