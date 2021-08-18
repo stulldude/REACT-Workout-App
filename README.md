@@ -15,6 +15,8 @@ View a visualization of your progress by visiting the progress page which shows 
 - Recharts
 - Material
 - CSS
+- MongoDB
+- Heroku
 - SVG logo created in Inkscape
 
 ## SCREENSHOTS
