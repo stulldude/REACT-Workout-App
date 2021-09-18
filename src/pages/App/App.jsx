@@ -15,29 +15,14 @@ import { useEffect } from 'react';
 
 export default function App() {
 
-  let userRoutineInfo = null
-  try {
-    console.log('The local routine')
-  } catch (e) {
-    console.log('No Local Routine');
-  }
-
   const [user, setUser] = useState(getUser());
   const [currRoutine, setCurrRoutine] = useState(null);
   const [userRoutineInfoState, setUserRoutineInfoState] = useState({completedExercises: []});
   const [workoutIdx, setWorkoutIdx] = useState(null);
-  let day = 0;
   
   useEffect(function() {
     async function fetchCurrInfo() {
       if (user) {
-        userRoutineInfo = await routineInfoAPI.getUserRoutineInfo();
-        console.log('Routine Info')
-        console.log(userRoutineInfo);
-        console.log(userRoutineInfo.currentRoutine);
-        console.log(typeof userRoutineInfo.currentRoutine);
-        console.log(currRoutine);
-        console.log(userRoutineInfoState);
         await setUserRoutineInfoState(await routineInfoAPI.getUserRoutineInfo());
       }
     }
@@ -51,20 +36,12 @@ export default function App() {
       }
     }
     fetchCurrRoutine().then(() => {console.log('hi')});
-
-    console.log('curr state')
-    console.log(currRoutine);
-    console.log(userRoutineInfoState)
   }, [user, userRoutineInfoState]);
 
   useEffect(function() {
     async function fetchIdx() {
       if (userRoutineInfoState != null && currRoutine != null){
-        console.log('in use effect')
-        console.log(userRoutineInfoState.currentDay);
-        console.log(currRoutine.split);
         const idx = userRoutineInfoState.currentDay % currRoutine.split;
-        console.log(idx);
         handleSet(idx);
       }
     }
@@ -73,7 +50,6 @@ export default function App() {
 
   async function updateWorkoutIdx() {
     const idx = userRoutineInfoState.currentDay % currRoutine.split;
-    console.log(idx);
     handleSet(idx);
   }
 
@@ -83,7 +59,6 @@ export default function App() {
 
   return (
     <main className="App">
-      {console.log('curr Routine' + currRoutine)}
       { user ?
         <>
           <NavBar user={user} setUser={setUser} setCurrRoutine={setCurrRoutine} setUserRoutineInfoState={setUserRoutineInfoState}/>

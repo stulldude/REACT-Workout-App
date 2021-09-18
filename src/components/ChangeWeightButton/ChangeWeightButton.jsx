@@ -33,7 +33,7 @@ export default function ChangeWeightButton({exercise, workoutIdx, currRoutine, e
     return (
         <>
         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-            {weight ? `${weight} Lbs` : "Bodyweight"}
+            {weight != 0 ? `${weight} Lbs` : "Bodyweight"}
         </Button>
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
             <DialogTitle id="form-dialog-title">Change Weight</DialogTitle>

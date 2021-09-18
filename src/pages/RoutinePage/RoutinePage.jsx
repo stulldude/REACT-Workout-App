@@ -13,11 +13,9 @@ export default function RoutinePage({currRoutine, setCurrRoutine, user}) {
     useEffect(function() {
         async function getRoutines() {
             const routines = await routinesAPI.getAll();
-            console.log(routines);
             setRoutineList(routines);
         }
         getRoutines();
-        console.log('hi');
     }, []);
 
     async function handleShowRoutines() {

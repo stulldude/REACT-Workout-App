@@ -37,7 +37,10 @@ async function addCompletedExercises(req, res) {
     const routineInfo = await RoutineInfo.getUserRoutineInfo(req.user._id);
     const routine = await Routine.findById(routineInfo.currentRoutine);
     routine.workouts[req.params.wIdx].exercises.forEach(exercise => {
-        let idx = routineInfo.completedExercises.findIndex(ele => ele.name === exercise.name);
+        let idx = routineInfo.completedExercises.findIndex(ele =>
+            ele.name === exercise.name
+        );
+        console.log(idx);
         idx != -1 ? 
             routineInfo.completedExercises[idx].weightsCompleted.push(exercise.weight)
             :

@@ -1,7 +1,6 @@
 import RoutineCard from '../RoutineCard/RoutineCard';
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles';
-import { flexbox } from '@material-ui/system';
 
 const useStyles = makeStyles({
     grid: {
@@ -14,7 +13,6 @@ const useStyles = makeStyles({
 export default function RoutineIndex({ routineList, setCurrRoutine, handleShow }) {
     const classes = useStyles();
 
-    console.log(routineList)
     const routines = routineList.map((routine, idx) =>
         <Grid item>
             <RoutineCard routine={routine} setCurrRoutine={setCurrRoutine} handleShow={handleShow} key={idx}/>

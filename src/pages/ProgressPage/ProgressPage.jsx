@@ -7,7 +7,6 @@ export default function ProgressPage({userRoutineInfo, x, y}){
     const data = [];
     const lines = [];
     let idx = 0;
-    console.log(userRoutineInfo.completedExercises);
     let completedExercises = userRoutineInfo.completedExercises;
     completedExercises.forEach((exercise, idx) => {
         lines.push(<MyLine name={exercise.name} color={colors[idx]}/>)
