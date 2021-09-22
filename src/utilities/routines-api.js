@@ -18,3 +18,6 @@ export function updateWeight(id, wIdx, eIdx, newWeight) {
     return sendRequest(`${BASE_URL}/${id}/${wIdx}/${eIdx}/${newWeight}`, 'PUT');
 }
 
+export function addExerciseToWorkout(id, wIdx, exercise) {
+    return sendRequest(`${BASE_URL}/${id}/${wIdx}`, 'PUT', exercise)
+}
