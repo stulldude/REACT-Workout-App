@@ -34,6 +34,7 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       // Baby step
       this.props.setUser(user);
+      this.props.history.push('/home')
     } catch {
       // An error occurred
       this.setState({ error: 'Sign Up Failed - Try Again'});
