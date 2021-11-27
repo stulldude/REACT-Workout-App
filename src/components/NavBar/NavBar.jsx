@@ -18,7 +18,7 @@ export default function NavBar(props) {
         <div>
           <Drawer />
         </div>
-        <Link to="/home"><img className='logo' src={process.env.PUBLIC_URL + '/templ8s.svg'} /></Link>
+        <Link to="/home"><img className='logo' src={process.env.PUBLIC_URL + '/templ8s.png'} /></Link>
         <div>
           <Link className="logout" onClick={handleLogOut} to="">Log Out</Link>
         </div>
