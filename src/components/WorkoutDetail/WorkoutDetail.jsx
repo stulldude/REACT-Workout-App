@@ -31,6 +31,7 @@ const useStyles = makeStyles({
         width: "100%"
     },
     grid: {
+        
         justifyContent: "center",
         alignContent: "center",
     },
@@ -72,7 +73,7 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
             };
         }
         e.currentTarget.innerHTML = e.currentTarget.value;
-        if (e.currentTarget.value === reps) completeArr[upperIdx][idx] = true;
+        if (e.currentTarget.value == reps) completeArr[upperIdx][idx] = true;
         else completeArr[upperIdx][idx] = false;
     };
 
@@ -91,6 +92,7 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
             innerArr.push(false);
         }
         completeArr.push(innerArr);
+
         buttons.push(
             <Grid item>
                 <Card className={classes.control}>
@@ -115,9 +117,9 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
     function handleROG() {
         if (!workout) return null;
         workout.exercises.forEach((exercise, idx) => {
-            if (completeArr[idx].every(ele => ele === true)) {
+            if (completeArr[idx].every(ele => ele == true)) {
                 routineAPI.handleROG(currRoutine._id, workoutIdx, idx);
-            }
+            } else console.log(exercise.name + ' was not fully completed')
         })
     }
 

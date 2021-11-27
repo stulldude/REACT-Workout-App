@@ -23,7 +23,10 @@ async function get(req, res) {
 async function handleROG(req, res) {
     const routine = await Routine.findById(req.params.id);
     const exercise = routine.workouts[req.params.wIdx].exercises[req.params.eIdx];
+    console.log(`exercise weight before ${exercise.weight}`)
     exercise.weight = exercise.weight + exercise.rog;
+    console.log(`exercise weight after ${exercise.weight}`)
+
     routine.save();
     res.json(routine);
 }
