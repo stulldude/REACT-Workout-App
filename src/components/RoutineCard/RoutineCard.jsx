@@ -25,8 +25,6 @@ const useStyles = makeStyles({
 export default function RoutineCard({routine, setCurrRoutine, handleShow}) {
     const classes = useStyles();
     async function handleClick() {
-        console.log(`${handleShow} is handle show in card`);
-        console.log(routine);
         handleShow()
         setCurrRoutine(routine);
         routineInfoAPI.setUserRoutine(routine._id)

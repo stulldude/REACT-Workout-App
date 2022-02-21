@@ -48,6 +48,5 @@ const Routine = require('./models/routine');
         ]},
     ]);
 
-    console.log(routineSeed);
     process.exit();
 })()

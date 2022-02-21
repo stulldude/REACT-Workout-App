@@ -21,7 +21,7 @@ export default function ProgressPage({userRoutineInfo, x, y}){
         data.push(dataItem);
         idx++;
     }
-    console.log(data)
+
     return (
         <ResponsiveContainer  width="80%" height="80%" minHeight={x} minWidth={y}>
             <LineChart className="chart" data={data}>

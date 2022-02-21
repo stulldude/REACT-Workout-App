@@ -62,7 +62,6 @@ export default function WorkoutDetail({ workout, routineInfo, currRoutine, setWo
     const classes = useStyles();
 
     async function handleCountDown(e, reps, idx, arr, upperIdx) {
-        console.log(e.currentTarget.value);
         if (e.currentTarget.value == null) {
             e.currentTarget.value = reps;
         } else {

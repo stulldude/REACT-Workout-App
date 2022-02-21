@@ -21,7 +21,6 @@ export default function RoutineIndex({ routineList, setCurrRoutine, handleShow }
     
     return (
         <>
-            {console.log(`${handleShow} is handleShow`)}
             <Grid className={classes.grid} container item  spacing={4}>
                 { routines }
             </Grid>

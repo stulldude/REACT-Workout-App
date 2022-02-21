@@ -10,16 +10,12 @@ module.exports = {
 
 async function getUserRoutineInfo(req, res) {
     const routineInfo = await RoutineInfo.getUserRoutineInfo(req.user._id);
-    console.log('my routine info');
-    console.log(routineInfo);
-    console.log('the routine');
-    //console.log(routineInfo.currentRoutine)
+
     res.json(routineInfo);
 }
 
 async function setUserRoutine(req, res) {
     const routineInfo = await RoutineInfo.getUserRoutineInfo(req.user._id);
-    console.log(routineInfo);
 
     if (routineInfo.routine && routineInfo.routine._id === req.params.id) return res.json('routine already active');
     await routineInfo.setCurrRoutine(req.params.id);
@@ -40,7 +36,6 @@ async function addCompletedExercises(req, res) {
         let idx = routineInfo.completedExercises.findIndex(ele =>
             ele.name === exercise.name
         );
-        console.log(idx);
         idx != -1 ? 
             routineInfo.completedExercises[idx].weightsCompleted.push(exercise.weight)
             :

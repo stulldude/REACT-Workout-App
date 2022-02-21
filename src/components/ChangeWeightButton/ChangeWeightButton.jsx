@@ -7,11 +7,8 @@ import Button from '@material-ui/core/Button'
 import { useState } from 'react'
 import * as routineAPI from '../../utilities/routines-api'
 export default function ChangeWeightButton({exercise, workoutIdx, currRoutine, eIdx}) {
-    console.log(exercise);
-    console.log(exercise.weight);
     const [open, setOpen] = useState(false);
     const [weight, setWeight] = useState([exercise.weight])
-    console.log(weight)
 
     const handleClickOpen = () => {
         setOpen(true);

@@ -35,7 +35,7 @@ export default function App() {
         await setCurrRoutine(await routineAPI.getOne(userRoutineInfoState.currentRoutine));
       }
     }
-    fetchCurrRoutine().then(() => {console.log('hi')});
+    fetchCurrRoutine();
   }, [user, userRoutineInfoState]);
 
   useEffect(function() {
