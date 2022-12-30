@@ -31,7 +31,6 @@ const useStyles = makeStyles({
         width: "100%"
     },
     grid: {
-        
         justifyContent: "center",
         alignContent: "center",
     },

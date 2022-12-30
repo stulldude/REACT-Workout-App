@@ -45,7 +45,6 @@ userRoutineInfoSchema.methods.setCurrRoutine = async function(routineId) {
 
 userRoutineInfoSchema.methods.dayCompleted = async function() {
     this.currentDay += 1;
-    console.log(this);
     return this.save();
 }
 
